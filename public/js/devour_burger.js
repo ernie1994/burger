@@ -9,7 +9,8 @@ $(document).ready(() => {
                 burger_name: $("input").val().trim()
             }
         })
-            .then(_res => {
+            .then(res => {
+                console.log(res);
                 window.location.reload();
             });
     });
