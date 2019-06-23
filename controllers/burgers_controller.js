@@ -16,6 +16,12 @@ router.put("/api/burgers", (req, res) => {
     });
 });
 
+router.delete("/api/burgers", (req, res) => {
+    burger.deleteAll(results => {
+        res.json(results);
+    });
+});
+
 router.get("/", (req, res) => {
     burger.all(results => {
         res.render("index", { burgers: results });

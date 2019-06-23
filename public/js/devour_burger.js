@@ -10,7 +10,6 @@ $(document).ready(() => {
             }
         })
             .then(res => {
-                console.log(res);
                 window.location.reload();
             });
     });
@@ -23,6 +22,18 @@ $(document).ready(() => {
             data: {
                 id: $(this).attr("data-burger-id")
             }
+        })
+            .then(_res => {
+                window.location.reload();
+            })
+
+    });
+
+    $("#reset").click(() => {
+
+        $.ajax({
+            method: "DELETE",
+            url: "/api/burgers"
         })
             .then(_res => {
                 window.location.reload();

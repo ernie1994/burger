@@ -13,6 +13,10 @@ module.exports = {
 
     update: function (burger, callback) {
         orm.updateOne(burger, callback);
+    },
+
+    deleteAll: function (callback) {
+        orm.deleteAll(callback);
     }
 
 };

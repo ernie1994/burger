@@ -16,6 +16,7 @@ module.exports = {
             'INSERT INTO burgers (burger_name) VALUES (?)',
             (burger_name),
             (err, results) => {
+                if (err) return console.log(err);
                 callback(results);
             }
         );
@@ -26,7 +27,17 @@ module.exports = {
             'UPDATE burgers SET ? WHERE ?',
             [{ devoured: true }, { id: burger.id }],
             (err, results) => {
-                console.log(err);
+                if (err) return console.log(err);
+                callback(results);
+            }
+        );
+    },
+
+    deleteAll: function (callback) {
+        connection.query(
+            'DELETE FROM burgers',
+            (err, results) => {
+                if (err) return console.log(err);
                 callback(results);
             }
         );
